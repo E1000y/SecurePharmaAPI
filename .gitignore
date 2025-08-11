@@ -48,58 +48,6 @@ temp/
 *.opendb
 *.vssscc
 *.vsscc
-# 1. Crée un .gitignore complet pour C# / Visual Studio
-cat > .gitignore <<'EOF'
-## Ignore les dossiers de build
-bin/
-obj/
-[Bb]uild/
-[Bb]in/
-[Oo]bj/
-
-## Ignore les fichiers utilisateurs et temporaires Visual Studio
-.vs/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-## Fichiers temporaires générés par Visual Studio
-*.vsidx
-*.pidb
-*.svclog
-*.scc
-
-## Fichiers de log
-*.log
-
-## Fichiers de build
-*.dll
-*.exe
-*.pdb
-*.cache
-
-## Dossiers temporaires
-_Temp/
-tmp/
-temp/
-
-## Fichiers de tests / couverture
-*.coverage
-*.coveragexml
-
-## Packages (on les restaure via NuGet)
-*.nupkg
-*.snupkg
-**/packages/*
-!**/packages/build/
-
-## Autres
-*.dbmdl
-*.jfm
-*.opendb
-*.vssscc
-*.vsscc
 
 # JetBrains Rider (si jamais tu l'utilises)
 .idea/
