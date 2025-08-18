@@ -1,6 +1,11 @@
-﻿namespace SecurePharmaAPI.Models
+﻿
+
+namespace SecurePharmaAPI.Models
 {
-    public class Patient
+    public class Patient: Person
     {
+        public ICollection<Prescription> Prescriptions { get; set; } = new List<Prescription>();    
+
+
     }
 }

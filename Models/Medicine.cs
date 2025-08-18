@@ -15,6 +15,10 @@
 
         // Navigation vers les prescriptions où ce médicament est utilisé
         public ICollection<PrescriptionMedicine> PrescriptionMedicines { get; set; } = new List<PrescriptionMedicine>();
+
+
+        public Storage Storage { get; set; } = null!; // Stockage associé à ce médicament
+        public int StorageId { get; set; } // Clé étrangère vers Storage
     }
 
 }

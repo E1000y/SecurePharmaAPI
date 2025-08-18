@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SecurePharmaAPI.Models;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+
 
 namespace SecurePharmaAPI.Data
 {
@@ -17,24 +16,54 @@ namespace SecurePharmaAPI.Data
         public DbSet<Prescription> Prescriptions { get; set; }
         public DbSet<Storage> Storages { get; set; }
         public DbSet<PrescriptionMedicine> PrescriptionMedicines { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Patient> Patients { get; set; }    
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configuration de la clé primaire composite pour PrescriptionMedicine
+
+            //Déclarer la clé composite pour PrescriptionMedicine
             modelBuilder.Entity<PrescriptionMedicine>()
                 .HasKey(pm => new { pm.PrescriptionId, pm.MedicineId });
 
-            // Relations Prescription <> PrescriptionMedicine
-            modelBuilder.Entity<PrescriptionMedicine>()
-                .HasOne(pm => pm.Prescription)
-                .WithMany(p => p.PrescriptionMedicines)
+            // Configurer la relation entre Prescription et PrescriptionMedicine
+            modelBuilder.Entity<Prescription>()
+                .HasMany(p => p.PrescriptionMedicines)
+                .WithOne(pm => pm.Prescription)
                 .HasForeignKey(pm => pm.PrescriptionId);
 
-            // Relations Medicine <> PrescriptionMedicine
-            modelBuilder.Entity<PrescriptionMedicine>()
-                .HasOne(pm => pm.Medicine)
-                .WithMany(m => m.PrescriptionMedicines)
+            // Configurer la relation entre Medicine et PrescriptionMedicine
+            modelBuilder.Entity<Medicine>()
+                .HasMany(m => m.PrescriptionMedicines)
+                .WithOne(pm => pm.Medicine)
                 .HasForeignKey(pm => pm.MedicineId);
+
+            // Configurer la relation entre Medicine et Storage
+
+            modelBuilder.Entity<Medicine>()
+                .HasOne(m => m.Storage)
+                .WithMany(s => s.Medicines)
+                .HasForeignKey(m => m.StorageId).IsRequired(false);
+
+            // Configurer la relation entre Prescription et Doctor
+               modelBuilder.Entity<Doctor>()
+                .HasMany(d => d.Prescriptions)
+                .WithOne(p => p.Doctor)
+                .HasForeignKey(p => p.DoctorId).IsRequired(false);
+
+            // Configurer la relation entre Prescription et Patient
+            modelBuilder.Entity<Patient>()
+                .HasMany(p => p.Prescriptions)
+                .WithOne(pr => pr.Patient)
+                .HasForeignKey(pr => pr.PatientId).IsRequired(false);
+
+
+
+
+
+
+
+
         }
     }
 }

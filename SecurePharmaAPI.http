@@ -1,6 +1,0 @@
-@SecurePharmaAPI_HostAddress = http://localhost:5039
-
-GET {{SecurePharmaAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

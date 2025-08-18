@@ -3,11 +3,11 @@
     public class Storage
     {
         public int Id {get; set;}
-        public string nom { get; set; } = string.Empty;
-        public string location { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Location { get; set; } = string.Empty;
         public StorageTemperature storageTemperature { get; set; }
-        private int capacity;
         public ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();
+       private int capacity;
         public int Capacity
         {
             get => capacity;
