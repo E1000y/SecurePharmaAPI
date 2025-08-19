@@ -9,8 +9,8 @@
 
 
         // Relations avec d'autres entités
-        public int DoctorId { get; set; } // Identifiant du médecin (clé étrangère)  
-        public Doctor Doctor { get; set; } = null!; // Médecin qui a prescrit l'ordonnance
+        public int? DoctorId { get; set; } // Identifiant du médecin (clé étrangère)  
+        public Doctor? Doctor { get; set; } = null!; // Médecin qui a prescrit l'ordonnance
         public int PatientId { get; set; } // Identifiant du patient (clé étrangère)
         public Patient Patient { get; set; } = null!; // Patient pour qui l'ordonnance est émise
 

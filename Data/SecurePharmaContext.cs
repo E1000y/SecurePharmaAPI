@@ -55,7 +55,7 @@ namespace SecurePharmaAPI.Data
             modelBuilder.Entity<Patient>()
                 .HasMany(p => p.Prescriptions)
                 .WithOne(pr => pr.Patient)
-                .HasForeignKey(pr => pr.PatientId).IsRequired(false);
+                .HasForeignKey(pr => pr.PatientId).IsRequired();
 
 
 
