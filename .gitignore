@@ -52,3 +52,7 @@ temp/
 # JetBrains Rider (si jamais tu l'utilises)
 .idea/
 *.iml
+
+# Fichier Word du cours à ignorer
+cours CSharp api web securepharma chatgpt.docx
+~$ours CSharp api web securepharma chatgpt.docx
