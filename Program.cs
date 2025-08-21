@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 // Configure Entity Framework Core with SQL Server and the connection string from appsettings.json default connection string
 builder.Services.AddDbContext<SecurePharmaContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnexion")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

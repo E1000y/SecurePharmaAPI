@@ -1,4 +1,6 @@
-﻿namespace SecurePharmaAPI.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace SecurePharmaAPI.Models
 {
     public class Medicine
     {
@@ -7,6 +9,7 @@
         public string Description { get; set; } = string.Empty; // Détails ou composition
         public string Manufacturer { get; set; } = string.Empty; // Laboratoire fabricant
         public DateTime ExpiryDate { get; set; } // Date de péremption
+        [Precision(18, 2)] // Précision pour les valeurs monétaires
         public decimal Price { get; set; } // Prix unitaire
         public int StockQuantity { get; set; } // Quantité disponible en stock
 
