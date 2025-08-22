@@ -2,26 +2,16 @@
 {
     public class Storage
     {
-        public int Id {get; set;}
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
-        public StorageTemperature storageTemperature { get; set; }
-        public ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();
-       private int capacity;
-        public int Capacity
-        {
-            get => capacity;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(value), "Capacity cannot be negative.");
-                }
-                capacity = value;
-            }
-        }
-        public int CurrentStock => Medicines.Count;
-       
 
+        // C'est une simple propriété. La validation se fera ailleurs.
+        public int Capacity { get; set; }
+
+        public StorageTemperature storageTemperature { get; set; }
+
+        // La propriété de navigation est toujours là.
+        public ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();
     }
 }

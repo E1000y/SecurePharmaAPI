@@ -1,5 +1,8 @@
-﻿namespace SecurePharmaAPI.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace SecurePharmaAPI.Models
 {
+    [PrimaryKey(nameof(PrescriptionId), nameof(MedicineId))]
     public class PrescriptionMedicine
     {
         public int PrescriptionId { get; set; } // Clé étrangère vers Prescription

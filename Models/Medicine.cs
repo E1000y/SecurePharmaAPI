@@ -6,12 +6,12 @@ namespace SecurePharmaAPI.Models
     {
         public int Id { get; set; } // Identifiant unique (clé primaire)
         public string Name { get; set; } = string.Empty; // Nom du médicament
-        public string Description { get; set; } = string.Empty; // Détails ou composition
-        public string Manufacturer { get; set; } = string.Empty; // Laboratoire fabricant
-        public DateTime ExpiryDate { get; set; } // Date de péremption
+        public string? Description { get; set; }  // Détails ou composition
+        public string? Manufacturer { get; set; } // Laboratoire fabricant
+        public DateTime? ExpiryDate { get; set; } // Date de péremption
         [Precision(18, 2)] // Précision pour les valeurs monétaires
-        public decimal Price { get; set; } // Prix unitaire
-        public int StockQuantity { get; set; } // Quantité disponible en stock
+        public decimal? Price { get; set; } // Prix unitaire
+        public int StockQuantity { get; set; } = string.Empty; // Quantité disponible en stock
 
         // Température de stockage (enum que tu as déjà défini)
         public StorageTemperature StorageTemperature { get; set; }
